@@ -41,7 +41,7 @@ function EmployeeList() {
                 <button onClick={() => handleDelete(employee._id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
               </td>
               <td>
-              <button><Link to={`/update/${employee._id}`} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Update</Link></button>
+              <button><Link to={`/edit/${employee._id}`} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Update</Link></button>
               </td>
             </tr>
           ))}
