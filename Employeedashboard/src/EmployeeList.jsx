@@ -22,31 +22,33 @@ function EmployeeList() {
     <div>
         <center>
       <Link to="/add" className="btn-add">ADD EMPLOYEE</Link></center>
-      <table className="employee-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Salary</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employees.map((employee) => (
-            <tr key={employee._id} className="text-center">
-              <td>{employee.name}</td>
-              <td >{employee.department}</td>
-              <td >${employee.salary}</td>
-              <td>
-                <button onClick={() => handleDelete(employee._id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
-              </td>
-              <td>
-              <button><Link to={`/edit/${employee._id}`} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Update</Link></button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {employees.length > 0 && (
+  <table className="employee-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {employees.map((employee) => (
+        <tr key={employee._id} className="text-center">
+          <td>{employee.name}</td>
+          <td>{employee.department}</td>
+          <td>${employee.salary}</td>
+          <td>
+            <button onClick={() => handleDelete(employee._id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+          </td>
+          <td>
+            <Link to={`/edit/${employee._id}`} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Update</Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
     </div>
   );
 }

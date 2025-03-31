@@ -34,7 +34,24 @@ function AddEditEmployee() {
       <h2>{id ? "Edit" : "Add"} Employee</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" value={employee.name} onChange={handleChange} placeholder="Name" className="w-full border p-2 rounded" required />
-        <input type="text" name="department" value={employee.department} onChange={handleChange} placeholder="Department" className="w-full border p-2 rounded" required />
+        <div className="flex items-center space-x-4">
+          <label className="font-semibold">Select Your Department:</label>
+          <select
+            name="department"
+            value={employee.department}
+            onChange={handleChange}
+            required
+          >
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+          </select>
+        </div>
+        <p >
+          Selected: {employee.department}
+        </p>
         <input type="number" name="salary" value={employee.salary} onChange={handleChange} placeholder="Salary" className="w-full border p-2 rounded" required />
         <input type="date" name="joiningDate" value={employee.joiningDate} onChange={handleChange} className="w-full border p-2 rounded" required />
         <input type="date" name="dob" value={employee.dob} onChange={handleChange} className="w-full border p-2 rounded" required />
